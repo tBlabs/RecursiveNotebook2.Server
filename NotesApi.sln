@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesApi.Nancy.SelfHost", "NotesApi.Nancy.SelfHost\NotesApi.Nancy.SelfHost.csproj", "{B3A1D0EF-AF5D-4305-9E03-E53991371FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHydra.Framework", "WebHydra.Framework\WebHydra.Framework.csproj", "{E69710A0-99CB-4982-9153-A00164B2A84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesApi.Handlers", "NotesApi.Handlers\NotesApi.Handlers.csproj", "{50F79CDA-4EAC-403E-AF36-5736CA2E3D50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesApi.Models", "NotesApi.Models\NotesApi.Models.csproj", "{3B908AC4-D660-4B17-A598-16B737538AB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesApi.Auth", "NotesApi.Auth\NotesApi.Auth.csproj", "{03050BB4-D43B-496D-87F6-EC01F49ACFB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesApi.Data", "NotesApi.Data\NotesApi.Data.csproj", "{360B5610-F9E0-4D97-8900-230E17280652}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF49E90B-C63A-4AE4-BF18-5DAA63CDCE2E}"
+	ProjectSection(SolutionItems) = preProject
+		_HOW_IT_WORKS.txt = _HOW_IT_WORKS.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3A1D0EF-AF5D-4305-9E03-E53991371FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A1D0EF-AF5D-4305-9E03-E53991371FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A1D0EF-AF5D-4305-9E03-E53991371FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A1D0EF-AF5D-4305-9E03-E53991371FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E69710A0-99CB-4982-9153-A00164B2A84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E69710A0-99CB-4982-9153-A00164B2A84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E69710A0-99CB-4982-9153-A00164B2A84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E69710A0-99CB-4982-9153-A00164B2A84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F79CDA-4EAC-403E-AF36-5736CA2E3D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F79CDA-4EAC-403E-AF36-5736CA2E3D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F79CDA-4EAC-403E-AF36-5736CA2E3D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F79CDA-4EAC-403E-AF36-5736CA2E3D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B908AC4-D660-4B17-A598-16B737538AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B908AC4-D660-4B17-A598-16B737538AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B908AC4-D660-4B17-A598-16B737538AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B908AC4-D660-4B17-A598-16B737538AB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03050BB4-D43B-496D-87F6-EC01F49ACFB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03050BB4-D43B-496D-87F6-EC01F49ACFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03050BB4-D43B-496D-87F6-EC01F49ACFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03050BB4-D43B-496D-87F6-EC01F49ACFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360B5610-F9E0-4D97-8900-230E17280652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360B5610-F9E0-4D97-8900-230E17280652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360B5610-F9E0-4D97-8900-230E17280652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360B5610-F9E0-4D97-8900-230E17280652}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

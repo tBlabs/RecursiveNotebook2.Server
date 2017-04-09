@@ -1,0 +1,10 @@
+Program flow:
+- AppModule is (kind of) starting class
+- there is only one endpoint: POST /api/cqrsbus
+- in NotesApi.Handler you can find all handlers for queries and command located in NotesApi.Models
+- when adding new class or dependency remember to update Autofac/AutofacModule.cs in every project
+
+Warnings:
+- be sure that main project is NotesApi.Nancy.SelfHost
+- DTO objects properties should be written with small letters (for JS JSON parser)
+- database meed little startup (build migration)
