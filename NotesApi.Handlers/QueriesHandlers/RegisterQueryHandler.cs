@@ -42,7 +42,11 @@ namespace NotesApi.Handlers
 
             _users.AddUser(userEntity);
 
-            return _auth.GenerateTokenForUser(userEntity);                     
+            User user2 = new User();
+            user2.Id = userEntity.Id;
+            user2.Claims = JsonConvert.DeserializeObject<Claims>(userEntity.Claims);
+
+            return _auth.GenerateTokenForUser(user2);                 
         }
     }
 }

@@ -3,6 +3,7 @@ using NotesApi.Data;
 using NotesApi.Data.Repositories;
 using NotesApi.Models;
 using System;
+using Newtonsoft.Json;
 using WebHydra.Framework;
 using WebHydra.Framework.Core;
 
@@ -25,16 +26,20 @@ namespace NotesApi.Handlers
 
             // TODO validation
 
-            UserEntity user = _users.GetByEmail(query.Email);
-            if (user == null)
+            UserEntity userEntity = _users.GetByEmail(query.Email);
+            if (userEntity == null)
             {
                 throw new UserNotFoundException();
             }
 
-            if (user.Password != query.Password)
+            if (userEntity.Password != query.Password)
             {
                 throw new WrongPasswordException();
             }
+
+            User user = new User();
+            user.Id = userEntity.Id;
+            user.Claims = JsonConvert.DeserializeObject<Claims>(userEntity.Claims);
 
             return _auth.GenerateTokenForUser(user);
         }

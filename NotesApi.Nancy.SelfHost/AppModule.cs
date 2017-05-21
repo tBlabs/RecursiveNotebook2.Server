@@ -14,10 +14,7 @@ namespace NotesApi.Nancy.SelfHost
 {
     public class AppModule : NancyModule
     {
-        public AppModule(
-            IMessageBuilder _messageBuilder,
-            ICqrsBus _cqrsBus,
-            IAuth _auth)
+        public AppModule(Cqrs _cqrs)
         {
             Post["/api/cqrsbus"] = _ =>
             {
@@ -25,55 +22,28 @@ namespace NotesApi.Nancy.SelfHost
 
                 try
                 {
-                    IWebHydraContext context = new WebHydraContext();
-
-                    string authToken = Context.Request.Headers.Authorization;
-
-                    context.User = _auth.GetUserFromToken(authToken);
-
-                    if (context.User != null)
+                    ICqrsInput cqrsInput = new CqrsInput()
                     {
-                        Console.WriteLine(context.User.ToString());
-                    }
-                    else Console.WriteLine("No user");
+                        Body = Context.Request.Body.AsString(),
+                        Auth = Context.Request.Headers.Authorization
+                    };
 
+                    string jsonResult = _cqrs.Exe(cqrsInput);
 
-                    string body = Context.Request.Body.AsString();
-
-                    var d = JsonConvert.DeserializeObject<Dictionary<string, object>>(body);
-                    IPackage package = new Package();
-                    package.ClassName = d.Keys.First();
-                    package.ClassProperties = d.Values.First().ToString();
-
-                    IMessage message = _messageBuilder.BuildMessageFromPackage(package);
-
-                    Console.WriteLine("Executing " + message.ToString() + "...");
-
-                    var ret = _cqrsBus.Execute(message, context);
-
-                    string json = JsonConvert.SerializeObject(ret);
-
-                    Console.WriteLine("Returned json: " + json);
-
-                    return new TextResponse(HttpStatusCode.OK, json);
+                    return new TextResponse(jsonResult); // Respond with code 200
                 }
-
                 catch (Exception e)
                 {
-                    Console.WriteLine("EX: " + e.Message);
-
-                    if (e is MessageNotFoundException)
-                    {
-                        return new TextResponse(HttpStatusCode.InternalServerError, contents: e.Message);
-                    }
-
+                    Console.WriteLine("EXCEPTION: " + e.Message);
+                    
                     if (e is IHttpRespondStatusCode)
                     {
-                        return new TextResponse((HttpStatusCode)((IHttpRespondStatusCode)e).StatusCode, contents: "EXCEPTION: " + e.GetType().ToString());
-                    }
+                        return new TextResponse((HttpStatusCode)((IHttpRespondStatusCode)e).StatusCode,
+                            contents: "EXCEPTION: " + e.GetType().ToString());
+                    }                       
 
-                    return new TextResponse(HttpStatusCode.InternalServerError);
-                }
+                    return new TextResponse(HttpStatusCode.InternalServerError, e.Message);
+                }            
             };
 
 

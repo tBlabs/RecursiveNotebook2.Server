@@ -17,12 +17,11 @@ namespace NotesApi.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Console.WriteLine("Onmodel creati CREATION");
             modelBuilder.Entity<UserEntity>().Property(p => p.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<UserEntity>().HasKey(p => p.Id);
 
-            modelBuilder.Entity<Note>().Property(p => p.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Note>().HasKey(p => p.Id);         
+            //modelBuilder.Entity<Note>().Property(p => p.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            //modelBuilder.Entity<Note>().HasKey(p => p.Id);         
         }     
     }
 }

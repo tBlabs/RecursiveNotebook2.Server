@@ -16,9 +16,11 @@ namespace NotesApi.Data.Repositories
 
         public bool AddNote(Note note)
         {
+            Console.WriteLine(note.Id);
             _context.Notes.Add(note);
+            Console.WriteLine(note.Id);
             _context.SaveChanges();
-
+            Console.WriteLine(note.Id);
             return true;
         }
 
@@ -40,6 +42,9 @@ namespace NotesApi.Data.Repositories
                 noteEntity.Title = note.Title;
             if (note.Content != null)
                 noteEntity.Content = note.Content;
+
+            Console.WriteLine("From "+noteEntity.ParentId+" to "+note.ParentId);
+            noteEntity.ParentId = note.ParentId;
 
             _context.Notes.AddOrUpdate(noteEntity);
             _context.SaveChanges();

@@ -67,6 +67,8 @@
     <Compile Include="Autofac\AutofacModule.cs" />
     <Compile Include="Core\Claims.cs" />
     <Compile Include="Core\CqrsBus.cs" />
+    <Compile Include="Core\CqrsEngine.cs" />
+    <Compile Include="Core\IAuth.cs" />
     <Compile Include="Core\ICommand.cs" />
     <Compile Include="Core\ICommandHandler.cs" />
     <Compile Include="Core\ICqrsBus.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Core\WebHydraContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\QueryInfo.cs" />
+    <Compile Include="Utils\Dump.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

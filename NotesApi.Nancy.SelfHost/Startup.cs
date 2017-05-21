@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using WebHydra.Framework.Core;
 using NotesApi.Models;
 using NotesApi.Data;
+using WebHydra.Framework;
 
 namespace NotesApi.Nancy.SelfHost
 {
@@ -24,12 +25,12 @@ namespace NotesApi.Nancy.SelfHost
         protected override void ApplicationStartup(ILifetimeScope existingContainer, IPipelines pipelines)
         {
             pipelines.AfterRequest += (ctx) =>
-            {       
+            {
                 ctx.Response.Headers.Add("Access-Control-Allow-Origin", "*");
                 ctx.Response.Headers.Add("Access-Control-Allow-Headers", "Content-type, Authorization");
-                ctx.Response.Headers.Add("Access-Control-Allow-Methods", "POST");          
+                ctx.Response.Headers.Add("Access-Control-Allow-Methods", "POST");
             };
-         
+
 
 
             var builder = new ContainerBuilder();
@@ -39,13 +40,10 @@ namespace NotesApi.Nancy.SelfHost
             builder.RegisterAssemblyModules(typeof(Models.Autofac.AutofacModule).Assembly);
             builder.RegisterAssemblyModules(typeof(Data.AutofacModule).Assembly);
             builder.RegisterAssemblyModules(typeof(Auth.AutofacModule).Assembly);
-       
+
             builder.Update(existingContainer.ComponentRegistry);
         }
     }
-
-
- 
 
     public class Program
     {       

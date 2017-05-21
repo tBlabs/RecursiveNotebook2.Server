@@ -76,9 +76,9 @@
     <Compile Include="Autofac\AutofacModule.cs" />
     <Compile Include="Entities\Note.cs" />
     <Compile Include="Entities\UserEntity.cs" />
-    <Compile Include="Migrations\201704032122412_initial.cs" />
-    <Compile Include="Migrations\201704032122412_initial.Designer.cs">
-      <DependentUpon>201704032122412_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201705012052527_initial.cs" />
+    <Compile Include="Migrations\201705012052527_initial.Designer.cs">
+      <DependentUpon>201705012052527_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
@@ -93,12 +93,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704032122412_initial.resx">
-      <DependentUpon>201704032122412_initial.cs</DependentUpon>
+    <Content Include="_priv\_DATABASE_CONNECTION_STRING.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705012052527_initial.resx">
+      <DependentUpon>201705012052527_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="_priv\_DATABASE_CONNECTION_STRING.txt" />
+    <ProjectReference Include="..\WebHydra.Framework\WebHydra.Framework.csproj">
+      <Project>{E69710A0-99CB-4982-9153-A00164B2A84A}</Project>
+      <Name>WebHydra.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

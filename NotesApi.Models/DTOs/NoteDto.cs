@@ -1,4 +1,5 @@
 using System;
+using WebHydra.Framework.Utils;
 
 namespace NotesApi.Models
 {
@@ -11,7 +12,7 @@ namespace NotesApi.Models
 
         public override string ToString()
         {
-            return "id=" + id + ", title=" + title + ", content=" + content;
+            return Dump.Props(this);
         }
     }
 }

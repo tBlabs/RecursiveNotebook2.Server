@@ -1,4 +1,5 @@
 ﻿using System;
+using WebHydra.Framework.Utils;
 
 namespace WebHydra.Framework.Core
 {
@@ -9,7 +10,7 @@ namespace WebHydra.Framework.Core
 
         public override string ToString()
         {
-            return $"User: id={Id}, claims: {Claims.ToString()}";
+            return Dump.Props(this);
         }
     }
 }

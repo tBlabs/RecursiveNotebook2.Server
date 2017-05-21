@@ -71,7 +71,6 @@
     <Compile Include="Auth.cs" />
     <Compile Include="Autofac\AutofacModule.cs" />
     <Compile Include="DateTimeProvider.cs" />
-    <Compile Include="IAuth.cs" />
     <Compile Include="IJWTToken.cs" />
     <Compile Include="Payload.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
-﻿namespace WebHydra.Framework.Core
+﻿using WebHydra.Framework.Utils;
+
+namespace WebHydra.Framework.Core
 {
     public class Package : IPackage
     {
@@ -7,7 +9,7 @@
 
         public override string ToString()
         {
-            return "Package: className=" + ClassName + ", props=" + ClassProperties;
+            return Dump.Props(this);
         }
     }
 }

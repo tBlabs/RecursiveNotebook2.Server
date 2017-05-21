@@ -11,7 +11,7 @@ namespace NotesApi.Data.Migrations
                 "dbo.Notes",
                 c => new
                     {
-                        Id = c.Guid(nullable: false, identity: true),
+                        Id = c.Guid(nullable: false),
                         UserId = c.Guid(nullable: false),
                         ParentId = c.Guid(nullable: false),
                         Title = c.String(),

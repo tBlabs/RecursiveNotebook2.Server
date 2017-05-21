@@ -15,12 +15,12 @@ namespace NotesApi.Auth
             _token = token;
         }
 
-        public string GenerateTokenForUser(UserEntity user)
+        public string GenerateTokenForUser(User user)
         {
             Payload payload = new Payload();
             payload.ExpirationTime = payload.CreationTime.AddYears(1);
             payload.UserId = user.Id;
-            payload.UserClaims = JsonConvert.DeserializeObject<Claims>(user.Claims);
+            payload.UserClaims = user.Claims;
 
             return _token.Build(payload);
         }
@@ -32,10 +32,14 @@ namespace NotesApi.Auth
                 User user = new User();
             
                 Payload payload = _token.Parse(token);
-                user.Id = payload.UserId;
-                user.Claims = payload.UserClaims;
 
-                return user;
+                if (payload != null)
+                {
+                    user.Id = payload.UserId;
+                    user.Claims = payload.UserClaims;
+
+                    return user;
+                }
             }
 
             return null;
